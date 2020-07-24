@@ -1,0 +1,20 @@
+#%RAML 1.0
+title: Service Victoria API
+version: 1
+baseUri: http://localhost:8081/api
+
+/details:
+  description: Retrieves the customer details for service victoria
+  post:
+    description: Input details
+    body:
+      application/json:
+        schema: !include customer_request_schema.json
+        example: !include customer_request.json
+    responses:
+            200:
+              description: Customer details retrieved successfully
+              body:
+                application/json:
+                  schema: !include customer_response_schema.json
+                  example: !include customer_response.json
